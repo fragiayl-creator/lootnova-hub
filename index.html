@@ -3,157 +3,461 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LootNova — Free Packs &amp; Giveaways</title>
-  <meta name="description" content="LootNova: Free Fire Sensitivity Pack & 1000 Diamonds Giveaway, free Canva Pro account, and GTA VI Launch Kit." />
+  <title>LootNova | Gaming Rewards, Sensitivity Packs &amp; Launch Kits</title>
+  <meta name="description" content="LootNova official hub: Free Fire 1000 Diamonds Giveaway, PUBG Mobile Sensitivity + Recoil Pack, Canva Pro Free Account, and GTA VI Launch Kit." />
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #07090e;
+      --surface: #111521;
+      --surface-inner: #0b0e17;
+      --border: #1e2538;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --cyan: #22d3ee;
+      --cyan-hover: #06b6d4;
+      --green: #10b981;
+      --green-hover: #059669;
+      --orange: #f59e0b;
+      --orange-hover: #d97706;
+      --purple: #a855f7;
+      --purple-hover: #9333ea;
+      --popular: #facc15;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: #0b0e14;
-      color: #f3f5fa;
-      line-height: 1.55;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.45;
       -webkit-font-smoothing: antialiased;
     }
-    .container { width: 100%; max-width: 680px; margin: 0 auto; padding: 20px 16px 48px; }
-    h1 { font-size: 1.7rem; line-height: 1.25; font-weight: 800; margin-bottom: 8px; }
-    .sub { color: #9aa4bf; font-size: 0.95rem; margin-bottom: 28px; }
-    section { margin-bottom: 40px; }
-    section img {
+
+    .page-wrap {
       width: 100%;
-      border-radius: 12px;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 18px 16px 48px;
+    }
+
+    /* Top Brand Bar */
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-weight: 900;
+      font-size: 1.15rem;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+    }
+
+    .brand-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--cyan), var(--purple));
+    }
+
+    .brand-sub {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--muted);
+    }
+
+    /* Wide Top Banner Image Area */
+    .banner-wrap {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto 26px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
+    }
+
+    .banner-media {
+      width: 100%;
+      aspect-ratio: 16 / 7;
+      min-height: 180px;
+      background: linear-gradient(135deg, #131a2e 0%, #0b0f1c 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .banner-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
       display: block;
+    }
+
+    /* 4-Card Row Grid */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    @media (max-width: 980px) {
+      .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 540px) {
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+      .banner-media {
+        aspect-ratio: 16 / 9;
+      }
+    }
+
+    .card {
+      position: relative;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 14px 14px 16px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+      transition: transform 0.16s ease, border-color 0.16s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      border-color: #2f3b59;
+    }
+
+    .popular-badge {
+      position: absolute;
+      top: 8px;
+      right: 10px;
+      z-index: 2;
+      background-color: var(--popular);
+      color: #090d16;
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      padding: 4px 9px;
+      border-radius: 6px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
+    }
+
+    .card-thumb {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      border-radius: 11px;
+      overflow: hidden;
+      background: var(--surface-inner);
+      border: 1px solid var(--border);
       margin-bottom: 14px;
     }
-    h2 { font-size: 1.35rem; line-height: 1.3; font-weight: 800; margin-bottom: 8px; }
-    .giveaway-line {
-      background: rgba(251, 191, 36, 0.1);
-      border: 1px solid rgba(251, 191, 36, 0.35);
-      border-radius: 10px;
-      padding: 10px 12px;
+
+    .card-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card-title {
+      font-size: 1.08rem;
+      font-weight: 900;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .card-reward {
       font-size: 0.92rem;
-      margin-bottom: 12px;
+      font-weight: 700;
+      margin-bottom: 10px;
     }
-    p { font-size: 0.94rem; color: #d6dbe8; margin-bottom: 12px; }
-    h3 { font-size: 1.05rem; font-weight: 800; margin: 16px 0 8px; }
-    table { width: 100%; border-collapse: collapse; margin-bottom: 8px; font-size: 0.92rem; }
-    table td { padding: 7px 10px; border-bottom: 1px solid #262f47; }
-    table td:last-child { text-align: right; font-weight: 800; color: #fbbf24; }
-    .note { font-size: 0.83rem; color: #9aa4bf; }
-    ul { list-style: none; display: grid; gap: 6px; margin-bottom: 16px; font-size: 0.92rem; }
-    ul li::before { content: "✓ "; color: #22c55e; font-weight: 900; }
-    .unlock-btn {
-      display: block; width: 100%; border: none; cursor: pointer;
-      background: #22c55e; color: #05140a;
-      font-family: inherit; font-weight: 800; font-size: 1.05rem;
-      padding: 16px 18px; border-radius: 11px; text-align: center;
+
+    .reward-cyan { color: var(--cyan); }
+    .reward-green { color: var(--green); }
+    .reward-orange { color: var(--orange); }
+    .reward-purple { color: #c084fc; }
+
+    .card-terms {
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.45;
+      margin-bottom: 16px;
+      flex: 1;
     }
-    .unlock-btn:hover { background: #16a34a; color: #fff; }
-    .btn-note { text-align: center; font-size: 0.78rem; color: #9aa4bf; margin-top: 8px; }
+
+    .claim-btn {
+      width: 100%;
+      border: none;
+      border-radius: 10px;
+      padding: 13px 14px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 900;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: background-color 0.15s ease, transform 0.1s ease;
+    }
+
+    .claim-btn:active {
+      transform: scale(0.98);
+    }
+
+    .btn-cyan {
+      background-color: var(--cyan);
+      color: #05131a;
+    }
+    .btn-cyan:hover {
+      background-color: var(--cyan-hover);
+    }
+
+    .btn-green {
+      background-color: var(--green);
+      color: #04150e;
+    }
+    .btn-green:hover {
+      background-color: var(--green-hover);
+    }
+
+    .btn-orange {
+      background-color: var(--orange);
+      color: #170e02;
+    }
+    .btn-orange:hover {
+      background-color: var(--orange-hover);
+    }
+
+    .btn-purple {
+      background-color: var(--purple);
+      color: #ffffff;
+    }
+    .btn-purple:hover {
+      background-color: var(--purple-hover);
+    }
+
+    /* Footer */
     footer {
-      margin-top: 36px; padding-top: 18px;
-      border-top: 1px solid #262f47; text-align: center;
-      font-size: 0.78rem; color: #9aa4bf;
+      margin-top: 38px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--muted);
     }
-    footer p + p { margin-top: 8px; }
+
+    footer p + p {
+      margin-top: 6px;
+    }
+
+    /* Same-Page Iframe Locker Modal */
     .modal-overlay {
-      position: fixed; inset: 0; z-index: 9999;
-      background: rgba(5, 7, 12, 0.94);
-      display: none; flex-direction: column;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(4, 6, 11, 0.94);
+      display: none;
+      flex-direction: column;
     }
-    .modal-overlay.active { display: flex; }
-    .modal-topbar {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 12px 16px; background: #121622; border-bottom: 1px solid #262f47;
+
+    .modal-overlay.active {
+      display: flex;
     }
-    .modal-title { font-size: 0.9rem; font-weight: 800; }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+
+    .modal-title {
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: var(--text);
+    }
+
     .modal-close {
-      background: #191f30; color: #f3f5fa; border: 1px solid #262f47;
-      border-radius: 8px; padding: 7px 13px; font-size: 0.84rem;
-      font-weight: 700; cursor: pointer;
+      background: #1a2133;
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 7px 14px;
+      font-size: 0.84rem;
+      font-weight: 800;
+      cursor: pointer;
     }
-    .modal-frame-wrap { flex: 1; width: 100%; background: #fff; }
-    .modal-frame-wrap iframe { width: 100%; height: 100%; border: none; display: block; }
+
+    .modal-close:hover {
+      border-color: var(--cyan);
+      color: var(--cyan);
+    }
+
+    .modal-body {
+      flex: 1;
+      width: 100%;
+      height: 100%;
+      background: #ffffff;
+    }
+
+    .modal-body iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>🎮 LootNova — Free Packs &amp; Giveaways</h1>
-    <p class="sub">Free Fire sensitivity pack + 1000 diamonds giveaway, a free Canva Pro account, and the GTA VI Launch Kit. Pick one below.</p>
+  <div class="page-wrap">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-dot"></span>
+        <span>LootNova</span>
+      </div>
+      <span class="brand-sub">Official Resource &amp; Giveaway Hub</span>
+    </header>
 
-    <!-- FREE FIRE -->
-    <section id="free-fire">
-      <img src="freefire.jpg" alt="Free Fire sensitivity pack and 1000 diamonds giveaway" />
-      <h2>💎 Free Fire Sensitivity Pack + 1000 Diamonds Giveaway</h2>
-      <p class="giveaway-line"><strong>1 winner • 1000 diamonds • Draw: Saturday 28 November 2026, 9:00 PM Cairo time</strong></p>
-      <p>Dial in consistent drag-headshot control with our baseline sensitivity values, clean HUD layout, and a 10-minute daily warm-up routine.</p>
-
-      <h3>Free preview — sensitivity starting point</h3>
-      <table>
-        <tr><td>General</td><td>95</td></tr>
-        <tr><td>Red Dot</td><td>90</td></tr>
-        <tr><td>2x Scope</td><td>85</td></tr>
-        <tr><td>4x Scope</td><td>80</td></tr>
-        <tr><td>Sniper Scope</td><td>70</td></tr>
-        <tr><td>Free Look</td><td>75</td></tr>
-      </table>
-      <p class="note">These are starting points used by many players — test them in Training Grounds and adjust in steps of 5 until they feel right for your phone. No setting guarantees headshots.</p>
-
-      <h3>What's inside the full pack</h3>
-      <ul>
-        <li>Full sensitivity table — General, Red Dot, 2x, 4x, Sniper and Free Look</li>
-        <li>Headshot tips — drag-shot technique and burst control</li>
-        <li>HUD &amp; controls layout — fire button, scope and quick weapon switch</li>
-        <li>10-minute daily aim routine — training plan for one week</li>
-      </ul>
-
-      <button type="button" class="unlock-btn" data-locker-url="https://trckapp.org/cl/i/d23xm6" data-locker-title="Unlock Free Fire Sensitivity Pack &amp; Giveaway Form">🎁 Unlock the Free Pack &amp; Enter the Giveaway</button>
-      <p class="btn-note">Complete one free offer to unlock the full pack and enter the giveaway. The sensitivity settings above are free to read right now.</p>
-      <p class="note">Rules: 1 entry per player. You must be 13 or older (or have a parent's permission). The prize is paid for by us, not by Garena. This giveaway is not sponsored by Garena or the Naruto franchise.</p>
+    <!-- Top Wide Banner Image Area -->
+    <section class="banner-wrap" aria-label="LootNova Featured Banner">
+      <div class="banner-media">
+        <img src="hero.jpg" alt="LootNova Gaming and Creator Resource Hub Banner" />
+      </div>
     </section>
 
-    <!-- CANVA PRO -->
-    <section id="canva-pro">
-      <img src="canva.jpg" alt="Free Canva Pro account" />
-      <h2>🎨 Free Canva Pro Account</h2>
-      <p>Speed up thumbnails, social posts, and banners with full Canva Pro workspace tools. Complete verification to reach the request form, and we will send your account manually after review.</p>
-      <ul>
-        <li>Background Remover — one-click clean cutouts for thumbnails</li>
-        <li>Magic Resize — one design, every size</li>
-        <li>Premium templates &amp; assets — Pro fonts, graphics and layouts</li>
-        <li>Brand Kit — your colors, logos and fonts in one place</li>
-      </ul>
-      <button type="button" class="unlock-btn" data-locker-url="https://appcomplete.org/cl/i/rn4wvg" data-locker-title="Unlock Canva Pro Account Request Form">🎁 Get Canva Pro Free</button>
-      <p class="btn-note">Complete the offers and fill in the form — the account will be sent to you.</p>
-    </section>
+    <!-- 4-Card Row -->
+    <main class="cards-grid">
+      <!-- Card 1: FREE FIRE -->
+      <article class="card">
+        <span class="popular-badge">POPULAR</span>
+        <div class="card-thumb">
+          <img src="freefire.jpg" alt="Free Fire 1000 Diamonds Giveaway" />
+        </div>
+        <h2 class="card-title">FREE FIRE</h2>
+        <div class="card-reward reward-cyan">1000 Diamonds Giveaway</div>
+        <p class="card-terms">
+          1 winner drawn Saturday 28 November 2026 at 9:00 PM Cairo time. Prize sent by official UID top-up after form entry. Funded by LootNova; not sponsored by Garena.
+        </p>
+        <button
+          type="button"
+          class="claim-btn btn-cyan"
+          data-locker-url="https://trckapp.org/cl/i/d23xm6"
+          data-locker-title="Free Fire — 1000 Diamonds Giveaway"
+        >
+          CLAIM NOW &rarr;
+        </button>
+      </article>
 
-    <!-- GTA VI -->
-    <section id="gta-vi">
-      <img src="gtavi.jpg" alt="GTA VI Launch Kit" />
-      <h2>🌆 GTA VI Launch Kit</h2>
-      <p>Prepare for the <strong>19 November 2026</strong> release with an organized companion pack for your phone and desktop. Reference material only — no game files, no beta, no downloads.</p>
-      <ul>
-        <li>Vice City map preview — coastal districts and landmarks</li>
-        <li>Neon wallpaper set — mobile and desktop backgrounds</li>
-        <li>PC &amp; console launch checklist — storage, settings and day-one prep</li>
-      </ul>
-      <button type="button" class="unlock-btn" data-locker-url="https://appcomplete.org/cl/i/rn4wvg" data-locker-title="Unlock GTA VI Launch Kit">🎁 Unlock the GTA VI Launch Kit</button>
-      <p class="btn-note">Reference companion kit only — does not include a playable game or beta.</p>
-    </section>
+      <!-- Card 2: PUBG MOBILE -->
+      <article class="card">
+        <div class="card-thumb">
+          <img src="pubg.jpg" alt="PUBG Mobile Sensitivity and Recoil Pack" />
+        </div>
+        <h2 class="card-title">PUBG MOBILE</h2>
+        <div class="card-reward reward-green">Sensitivity + Recoil Pack</div>
+        <p class="card-terms">
+          PDF guide with tested sensitivity and recoil control settings. Sent manually after completing the form.
+        </p>
+        <button
+          type="button"
+          class="claim-btn btn-green"
+          data-locker-url="https://appcomplete.org/cl/i/rn4wvg"
+          data-locker-title="PUBG Mobile — Sensitivity + Recoil Pack"
+        >
+          CLAIM NOW &rarr;
+        </button>
+      </article>
+
+      <!-- Card 3: CANVA PRO -->
+      <article class="card">
+        <div class="card-thumb">
+          <img src="canva.jpg" alt="Canva Pro Free Account" />
+        </div>
+        <h2 class="card-title">CANVA PRO</h2>
+        <div class="card-reward reward-orange">Free Account</div>
+        <p class="card-terms">
+          Access to Canva Pro workspace features. Account details sent manually after completing the request form.
+        </p>
+        <button
+          type="button"
+          class="claim-btn btn-orange"
+          data-locker-url="https://appcomplete.org/cl/i/rn4wvg"
+          data-locker-title="Canva Pro — Free Account Request"
+        >
+          CLAIM NOW &rarr;
+        </button>
+      </article>
+
+      <!-- Card 4: GTA VI -->
+      <article class="card">
+        <div class="card-thumb">
+          <img src="gtavi.jpg" alt="GTA VI Launch Kit" />
+        </div>
+        <h2 class="card-title">GTA VI</h2>
+        <div class="card-reward reward-purple">Launch Kit</div>
+        <p class="card-terms">
+          Reference kit only (map preview, wallpapers, and launch checklist) for the 19 November 2026 release. Not a playable game or beta.
+        </p>
+        <button
+          type="button"
+          class="claim-btn btn-purple"
+          data-locker-url="https://appcomplete.org/cl/i/rn4wvg"
+          data-locker-title="GTA VI — Launch Kit"
+        >
+          CLAIM NOW &rarr;
+        </button>
+      </article>
+    </main>
 
     <footer>
       <p>&copy; 2026 LootNova. All rights reserved.</p>
-      <p>Fan-made gaming and creator resource hub. LootNova is independent and is not affiliated with, endorsed by, or sponsored by Garena, Canva, Rockstar Games, or Take-Two Interactive.</p>
+      <p>
+        Fan-made gaming and creator resource hub. LootNova is not affiliated with, endorsed by, or sponsored by Garena, Canva, Rockstar Games, or Take-Two Interactive.
+      </p>
     </footer>
   </div>
 
-  <!-- SAME-PAGE IFRAME LOCKER MODAL -->
+  <!-- Same-Page Iframe Locker Modal -->
   <div id="lockerModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <div class="modal-topbar">
-      <span id="modalTitle" class="modal-title">Complete Quick Verification</span>
-      <button type="button" id="closeModalBtn" class="modal-close" aria-label="Close verification modal">✕ Close</button>
+    <div class="modal-header">
+      <span id="modalTitle" class="modal-title">Complete Verification</span>
+      <button type="button" id="closeModalBtn" class="modal-close" aria-label="Close modal">
+        &#10005; Close
+      </button>
     </div>
-    <div class="modal-frame-wrap">
-      <iframe id="lockerIframe" src="about:blank" title="Content Verification Locker" allow="clipboard-write; fullscreen"></iframe>
+    <div class="modal-body">
+      <iframe
+        id="lockerIframe"
+        src="about:blank"
+        title="Verification Locker"
+        allow="clipboard-write; fullscreen"
+      ></iframe>
     </div>
   </div>
 
@@ -163,27 +467,37 @@
       const iframe = document.getElementById("lockerIframe");
       const modalTitle = document.getElementById("modalTitle");
       const closeBtn = document.getElementById("closeModalBtn");
-      function openLocker(url, title) {
-        modalTitle.textContent = title || "Complete Quick Verification";
+      const buttons = document.querySelectorAll(".claim-btn");
+
+      function openModal(url, title) {
+        modalTitle.textContent = title || "Complete Verification";
         iframe.src = url;
         modal.classList.add("active");
         document.body.style.overflow = "hidden";
       }
-      function closeLocker() {
+
+      function closeModal() {
         modal.classList.remove("active");
         iframe.src = "about:blank";
         document.body.style.overflow = "";
       }
-      document.querySelectorAll(".unlock-btn").forEach(function (btn) {
+
+      buttons.forEach(function (btn) {
         btn.addEventListener("click", function () {
           const url = btn.getAttribute("data-locker-url");
           const title = btn.getAttribute("data-locker-title");
-          if (url) openLocker(url, title);
+          if (url) {
+            openModal(url, title);
+          }
         });
       });
-      closeBtn.addEventListener("click", closeLocker);
+
+      closeBtn.addEventListener("click", closeModal);
+
       document.addEventListener("keydown", function (e) {
-        if (e.key === "Escape" && modal.classList.contains("active")) closeLocker();
+        if (e.key === "Escape" && modal.classList.contains("active")) {
+          closeModal();
+        }
       });
     })();
   </script>
